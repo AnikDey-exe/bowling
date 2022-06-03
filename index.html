@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bowling</title>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+    <script src="./components/Bowling.js"></script>
+    <script src="./components/Pins.js"></script>
+</head>
+
+<body>
+    <a-scene id="scene-2">
+        <a-assets timeout="2500">
+            <a-asset-item id="bowling_pin" src="./models/bowling_pin/scene.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-sky color="#6EBAA7"></a-sky>
+
+        <!--Light-->
+        <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>
+
+        <!--Bullets-->
+        <a-entity bowl></a-entity>
+
+        <!-- <a-entity id="pin" gltf-model="#bowling_pin" position="0 0 0" scale="4 4 4" rotation="0 0 0" dynamic-body>
+        </a-entity> -->
+
+        <a-entity id="pin" pins> 
+        </a-entity>
+
+        <!--Ground-->
+        <a-plane id="ground-2" repeat="5 5" position="0 -1 0" rotation="-90 0 0" height="200" width="200" color="pink"
+            static-body visible="false">
+        </a-plane>
+
+        <!--Camera and Cursor-->
+        <a-entity id="camera-2" camera="fov:90" position="0 1.6 0" wasd-controls="acceleration: 200"
+            look-controls="pointerLockEnabled: true; mouseEnabled: false">
+            <a-cursor></a-cursor>
+        </a-entity>
+
+        <a-entity id="environment-2"  position="0 -1 0" environment="preset:checkerboard; skyType: gradient; lighting:point;">
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
